@@ -1,0 +1,142 @@
+@use "./colors" as *;
+@use "./animations";
+
+.icons {
+	position: absolute;
+	opacity: 0.05;
+	color: $black;
+	width: 100%;
+	z-index: -1;
+	&-one {
+		margin-top: 15%;
+		margin-left: 3%;
+		width: 20%;
+		animation: rotate-left 50s infinite linear;
+	}
+
+	&-two {
+		width: 20%;
+		margin-left: 73%;
+		margin-top: 60%;
+		animation: rotate-right 50s infinite linear;
+	}
+
+	&-three {
+		width: 15%;
+		margin-left: 10%;
+		margin-top: 120%;
+		animation: rotate-left 50s infinite linear;
+	}
+}
+
+.offers {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10em 0;
+
+	h2 {
+		margin-top: 1em;
+		font-size: 3rem;
+		font-family: "Courgette", serif;
+		text-align: center;
+		letter-spacing: 2px;
+		text-shadow: 1px 1px 1px $rich-dark;
+	}
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: $rich-dark;
+		margin: 2em;
+
+		&-position {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background-color: $pure-white;
+			width: 300px;
+			border: 1px solid $rich-dark;
+			margin-top: 2em;
+			box-shadow: 1px 2px 2px $rich-dark;
+			z-index: 1;
+
+			.offer-body {
+				margin-top: 0.5em;
+				padding: 1em;
+				text-align: center;
+				letter-spacing: 0.5px;
+				font-size: 1.5rem;
+
+				h3 {
+					text-align: center;
+					margin-bottom: 0.5em;
+				}
+			}
+
+			.offer-footer {
+				padding: 2em 0;
+
+				.offer-btn {
+					padding: 1em;
+					margin: 1em;
+					background-color: $green;
+					border-radius: 5px;
+					transition: background-color 0.4s;
+					text-decoration: none;
+					color: $rich-dark;
+
+					&:hover,
+					&:focus {
+						background-color: rgb(148, 226, 32);
+					}
+				}
+			}
+		}
+
+		.image-box {
+			background-size: cover;
+			background-position: center;
+			width: 100%;
+			height: 150px;
+
+			&-one {
+				background-image: url("../img/flowers-2268020_640-bucket-small.jpg");
+			}
+
+			&-two {
+				background-image: url("../img/roses-3638620_640-small.jpg");
+			}
+
+			&-three {
+				background-image: url("../img/wedding-4765939_640-small.jpg");
+			}
+		}
+	}
+
+	.greenhouse {
+		border: 1px solid $rich-dark;
+		margin: 2em 4em;
+		background-color: $pure-white;
+
+		&__img {
+			height: 250px;
+			border-bottom: 1px solid $rich-dark;
+
+			&-size {
+				object-fit: cover;
+				height: 100%;
+				width: 100%;
+			}
+		}
+
+		&__text {
+			text-align: center;
+			padding: 2em;
+			font-size: 1.5rem;
+		}
+	}
+}

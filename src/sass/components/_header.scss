@@ -1,0 +1,67 @@
+@use "./colors" as *;
+@use "./mixins" as mixins;
+@use "./animations";
+
+.header {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+	border-bottom: 2px solid $pure-white;
+
+	&__photo {
+		grid-column: 1/3;
+		grid-row: 1/2;
+		background-image: url("../img/flowers-2268020_1920-bucket-big.jpg");
+		background-size: cover;
+	}
+
+	&__text {
+		grid-column: 1/3;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: 'Courgette';
+		color: $rich-dark;
+		font-style: italic;
+		letter-spacing: 5px;
+
+		&-title {
+			font-size: 1.5rem;
+			text-align: center;
+		}
+	}
+
+	&__icons {
+		position: absolute;
+		grid-column: 1/3;
+		grid-row: 2/4;
+		opacity: 0.05;
+		color: $black;
+		width: 100%;
+		z-index: -1;
+
+		&-one {
+			margin-top: 5%;
+			margin-left: 10%;
+			width: 25%;
+			animation: rotate-left 50s infinite linear;
+		}
+
+		&-two {
+			margin-top: 35%;
+			margin-left: 50%;
+			width: 30%;
+			animation: rotate-right 50s infinite linear;
+		}
+
+		&-three {
+			margin-top: 10%;
+			right: 10%;
+			width: 5%;
+			animation: rotate-right 50s infinite linear;
+		}
+	}
+}

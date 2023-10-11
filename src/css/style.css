@@ -1,0 +1,761 @@
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+.hamburger:hover {
+  opacity: 0.7;
+}
+
+.hamburger.is-active:hover {
+  opacity: 0.7;
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: #fff;
+}
+
+.hamburger-box {
+  width: 40px;
+  height: 15px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  display: block;
+}
+
+.hamburger-inner::before {
+  top: -10px;
+}
+
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+.hamburger--elastic .hamburger-inner {
+  top: 2px;
+  transition-duration: 0.275s;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.hamburger--elastic .hamburger-inner::before {
+  top: 10px;
+  transition: opacity 0.125s 0.275s ease;
+}
+
+.hamburger--elastic .hamburger-inner::after {
+  top: 20px;
+  transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.hamburger--elastic.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(135deg);
+  transition-delay: 0.075s;
+}
+
+.hamburger--elastic.is-active .hamburger-inner::before {
+  transition-delay: 0s;
+  opacity: 0;
+}
+
+.hamburger--elastic.is-active .hamburger-inner::after {
+  transform: translate3d(0, -20px, 0) rotate(-270deg);
+  transition-delay: 0.075s;
+}
+
+.hamburger--elastic-r .hamburger-inner {
+  top: 2px;
+  transition-duration: 0.275s;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.hamburger--elastic-r .hamburger-inner::before {
+  top: 10px;
+  transition: opacity 0.125s 0.275s ease;
+}
+
+.hamburger--elastic-r .hamburger-inner::after {
+  top: 20px;
+  transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes rotate-right {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate-left {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: whitesmoke;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+.header__photo {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  background-image: url("../img/flowers-2268020_1920-bucket-big.jpg");
+  background-size: cover;
+}
+.header__text {
+  grid-column: 1/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Courgette";
+  color: rgb(22, 20, 20);
+  font-style: italic;
+  letter-spacing: 5px;
+}
+.header__text-title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.header__icons {
+  position: absolute;
+  grid-column: 1/3;
+  grid-row: 2/4;
+  opacity: 0.05;
+  color: black;
+  width: 100%;
+  z-index: -1;
+}
+.header__icons-one {
+  margin-top: 5%;
+  margin-left: 10%;
+  width: 25%;
+  animation: rotate-left 50s infinite linear;
+}
+.header__icons-two {
+  margin-top: 35%;
+  margin-left: 50%;
+  width: 30%;
+  animation: rotate-right 50s infinite linear;
+}
+.header__icons-three {
+  margin-top: 10%;
+  right: 10%;
+  width: 5%;
+  animation: rotate-right 50s infinite linear;
+}
+
+.nav {
+  position: fixed;
+  background-color: #4f772d;
+  width: 100%;
+  border-bottom: 1px solid white;
+  z-index: 100;
+}
+.nav .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.2em;
+  font-size: 2rem;
+  background-color: #4f772d;
+  color: rgb(255, 255, 255);
+}
+.nav .navbar__logo {
+  align-self: center;
+}
+.nav .navbar__logo a {
+  display: flex;
+  align-items: flex-end;
+  padding: 0 0.5em;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.nav .navbar__logo a img {
+  width: 2em;
+}
+.nav .navbar .flower-quotation {
+  display: none;
+  font-style: italic;
+  font-weight: 300;
+}
+.nav__links {
+  display: flex;
+  justify-content: flex-end;
+}
+.nav__links .navbar__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 350px;
+  width: 100%;
+  font-size: 2rem;
+  top: 4.25em;
+  transform: translateY(-160%);
+  background-color: #4f772d;
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.3s;
+  z-index: -1;
+}
+.nav__links .navbar__nav-link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  text-align: center;
+  width: 60%;
+  padding: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+.nav__links .navbar__nav-link:hover {
+  background-color: rgb(22, 20, 20);
+}
+.nav__links .nav-active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.aboutus {
+  padding: 2em;
+}
+.aboutus__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 10em;
+}
+.aboutus__box-photo {
+  align-self: center;
+  overflow: hidden;
+}
+.aboutus__box-photo img {
+  width: 100%;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgb(22, 20, 20);
+}
+.aboutus__box-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 0 0.5em;
+  color: rgb(22, 20, 20);
+}
+.aboutus__box-text p {
+  padding: 0.5em;
+}
+.aboutus__box-text p img {
+  width: 1em;
+}
+.aboutus__box-text a {
+  text-decoration: none;
+  color: #4f772d;
+  transition: color 0.4s;
+  cursor: pointer;
+}
+.aboutus__box-text a:hover {
+  color: rgb(102, 160, 15);
+}
+
+.icons {
+  position: absolute;
+  opacity: 0.05;
+  color: black;
+  width: 100%;
+  z-index: -1;
+}
+.icons-one {
+  margin-top: 15%;
+  margin-left: 3%;
+  width: 20%;
+  animation: rotate-left 50s infinite linear;
+}
+
+.offers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10em 0;
+}
+.offers h2 {
+  margin-top: 1em;
+  font-size: 3rem;
+  font-family: "Courgette", serif;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 1px rgb(22, 20, 20);
+}
+.offers__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(22, 20, 20);
+  margin: 2em;
+}
+.offers__box-position {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  width: 300px;
+  border: 1px solid rgb(22, 20, 20);
+  margin-top: 2em;
+  box-shadow: 1px 2px 2px rgb(22, 20, 20);
+  z-index: 1;
+}
+.offers__box-position .offer-body {
+  margin-top: 0.5em;
+  padding: 1em;
+  text-align: center;
+  letter-spacing: 0.5px;
+  font-size: 1.5rem;
+}
+.offers__box-position .offer-body h3 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.offers__box-position .offer-footer {
+  padding: 2em 0;
+}
+.offers__box-position .offer-footer .offer-btn {
+  padding: 1em;
+  margin: 1em;
+  background-color: #90a955;
+  border-radius: 5px;
+  transition: background-color 0.4s;
+  text-decoration: none;
+  color: rgb(22, 20, 20);
+}
+.offers__box-position .offer-footer .offer-btn:hover, .offers__box-position .offer-footer .offer-btn:focus {
+  background-color: rgb(148, 226, 32);
+}
+.offers__box .image-box {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 150px;
+}
+.offers__box .image-box-one {
+  background-image: url("/src/img/flowers-2268020_640-bucket-small.jpg");
+}
+.offers__box .image-box-two {
+  background-image: url("/src/img/roses-3638620_640-small.jpg");
+}
+.offers__box .image-box-three {
+  background-image: url("/src/img/wedding-4765939_640-small.jpg");
+}
+.offers .greenhouse {
+  border: 1px solid rgb(22, 20, 20);
+  margin: 2em 4em;
+  background-color: rgb(255, 255, 255);
+}
+.offers .greenhouse__img {
+  height: 250px;
+  border-bottom: 1px solid rgb(22, 20, 20);
+}
+.offers .greenhouse__img-size {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.offers .greenhouse__text {
+  text-align: center;
+  padding: 2em;
+  font-size: 1.5rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10em 0;
+}
+.contact h2 {
+  margin: 1em 0;
+  font-size: 3rem;
+  font-family: "Courgette", serif;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 1px rgb(22, 20, 20);
+}
+.contact .google-map {
+  width: 300px;
+  height: 400px;
+  border: 1px solid rgb(22, 20, 20);
+}
+.contact .google-map iframe {
+  width: 100%;
+  height: 100%;
+}
+.contact .info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+  width: 300px;
+}
+.contact .info .info-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgb(22, 20, 20);
+}
+.contact .info__data {
+  text-align: center;
+  font-size: 2rem;
+}
+.contact .info__data h3 {
+  padding: 0.5em 0;
+}
+.contact .info__data p {
+  margin-top: 0.2em;
+}
+.contact .info__data .socials-icon {
+  width: 2em;
+  height: 2em;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.nav {
+  top: 0;
+}
+
+.sale .section-title {
+  margin-top: 7em;
+  margin-bottom: 1em;
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Courgette";
+}
+.sale .section-title img {
+  margin-top: 1em;
+}
+.sale .cards {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sale .cards__title {
+  text-align: center;
+  margin: 1em 0;
+  font-size: 1.5rem;
+}
+.sale .cards .card {
+  position: relative;
+  margin: 2em 6em;
+  width: 300px;
+  height: 400px;
+  perspective: 700px;
+}
+.sale .cards .card__img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  transition: 0.8s;
+}
+.sale .cards .card .one {
+  background-image: url("/dist/img/wedding-1846114_1280-small.jpg");
+}
+.sale .cards .card .two {
+  background-image: url("/dist/img/basket-1846135_1280-small.jpg");
+}
+.sale .cards .card__text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2em;
+  border-radius: 15px;
+  font-size: 1.3rem;
+  text-align: center;
+  transition: all 0.8s;
+  background-image: linear-gradient(315deg, #fee2f8 0%, #dcf8ef 74%);
+  opacity: 0;
+}
+.sale .cards .card__text h3 {
+  margin-top: 8em;
+  margin-bottom: 1em;
+}
+.sale .cards .card__text-one {
+  transform: rotateY(-180deg);
+}
+.sale .cards .card__text-two {
+  transform: rotateX(-180deg);
+}
+.sale .cards .card:hover .card__text {
+  transform: rotate(0);
+  opacity: 1;
+}
+.sale .cards .card:hover .one {
+  transform: rotateY(-180deg);
+  opacity: 0;
+}
+.sale .cards .card:hover .two {
+  transform: rotateX(180deg);
+  opacity: 0;
+}
+.sale .more-info {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 2rem;
+}
+.sale .more-info a {
+  text-decoration: none;
+  color: #4f772d;
+  cursor: pointer;
+  transition: color 0.4s;
+}
+.sale .more-info a:hover {
+  color: #90a955;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  padding: 1em;
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  background-color: #4f772d;
+}
+.footer__bottom-text {
+  display: flex;
+  justify-content: center;
+  letter-spacing: 1.5px;
+}
+.footer img {
+  width: 1.5em;
+}
+
+@media (min-width: 576px) {
+  .aboutus__box-text {
+    font-size: 2rem;
+  }
+  .offers__box-position {
+    width: 400px;
+  }
+  .offers .image-box {
+    height: 250px;
+  }
+  .offers .offer-footer .offer-btn {
+    padding: 1.5em;
+  }
+}
+@media (min-width: 768px) {
+  .icons-one {
+    margin-top: 5%;
+  }
+  .contact .google-map {
+    width: 500px;
+  }
+  .contact .info {
+    width: 500px;
+  }
+  .sale {
+    height: 95vh;
+  }
+  .sale .cards {
+    flex-direction: row;
+  }
+  .sale .cards .card {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (min-width: 992px) {
+  .header {
+    display: grid;
+  }
+  .header__photo {
+    grid-column: 2/3;
+    grid-row: 1/3;
+    background-position: center;
+    background-image: url("../img/flowershop-966459_1920-big.jpg");
+  }
+  .header__text {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+  .header__text-title {
+    font-size: 2rem;
+  }
+  .header__icons {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+  .header__icons-one {
+    margin-top: 25%;
+    width: 20%;
+  }
+  .header__icons-two {
+    margin-top: 70%;
+    margin-left: 36%;
+    width: 26%;
+  }
+  .header__icons-three {
+    margin-top: 50%;
+    width: 9%;
+  }
+  .nav .navbar .flower-quotation {
+    display: inline;
+  }
+  .nav__links .navbar__nav {
+    right: 0;
+    width: 20%;
+    height: 100vh;
+    transform: translateX(102%);
+    top: 4.25em;
+  }
+  .nav__links .nav-active {
+    transform: translateX(0);
+  }
+  .aboutus__box {
+    flex-direction: row;
+  }
+  .aboutus__box-text {
+    width: 500px;
+  }
+  .offers__box {
+    flex-direction: row;
+  }
+  .offers__box-position {
+    margin: 1em;
+  }
+  .offers__box-position .offer-body {
+    height: 200px;
+  }
+  .offers__box .image-box-one {
+    background-image: url("/src/img/tulips-4004071_1920-big.jpg");
+  }
+  .offers__box .image-box-two {
+    background-image: url("/src/img/roses-3638620_1920-big.jpg");
+  }
+  .offers__box .image-box-three {
+    background-image: url("/src/img/wedding-4765939_1920-big.jpg");
+  }
+  .offers .offer-footer {
+    margin: 1em 0;
+  }
+  .offers .offer-footer .offer-btn {
+    padding: 1.5em;
+    font-size: 1.3rem;
+  }
+  .offers .greenhouse__img {
+    height: 400px;
+  }
+  .offers .greenhouse__text {
+    padding: 2em;
+    font-size: 1.5rem;
+  }
+  .contact .google-map,
+  .contact .info {
+    width: 800px;
+  }
+}
+@media (min-width: 1200px) {
+  .offers h2 {
+    font-size: 2.5rem;
+  }
+  .offers .greenhouse__img {
+    height: 500px;
+  }
+  .offers .greenhouse__text {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .contact .google-map, .contact .info {
+    width: 900px;
+  }
+}/*# sourceMappingURL=style.css.map */

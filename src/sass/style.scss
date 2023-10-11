@@ -1,0 +1,16 @@
+@use "./components/hamburger";
+@use "./components/animations";
+@use "./components/colors" as *;
+@use "./components/mixins" as mixins;
+
+@use "./components/reset";
+@use "./components/header";
+@use "./components/nav";
+@use "./components/main";
+@use "./components/offers";
+@use "./components/contact";
+@use "./components/sale";
+@use "./components/footer";
+@use "./components/small";
+@use "./components/medium";
+@use "./components/large";

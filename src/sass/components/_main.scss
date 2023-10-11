@@ -1,0 +1,57 @@
+@use "./hamburger";
+@use "./animations";
+@use "./colors" as *;
+@use "./mixins" as mixins;
+
+.aboutus {
+	padding: 2em;
+	&__box {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-top: 1em;
+		margin-bottom: 10em;
+
+		&-photo {
+			align-self: center;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+				height: 500px;
+				object-fit: cover;
+				border-radius: 8px;
+				box-shadow: 2px 2px 2px $rich-dark;
+			}
+		}
+
+		&-text {
+			display: flex;
+			flex-direction: column;
+			margin-top: 1em;
+			font-size: 1.3rem;
+			text-align: center;
+			padding: 0 .5em;
+			color: $rich-dark;
+
+			p {
+				padding: .5em;
+
+				img {
+					width: 1em;
+				}
+			}
+
+			a {
+				text-decoration: none;
+				color: $main-color;
+				transition: color 0.4s;
+				cursor: pointer;
+
+				&:hover {
+					color: rgb(102, 160, 15);
+				}
+			}
+		}
+	}
+}

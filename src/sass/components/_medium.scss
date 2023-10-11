@@ -1,0 +1,165 @@
+@media (min-width: 768px) {
+	.icons {
+		&-one {
+			margin-top: 5%;
+		}
+	}
+
+	.contact {
+		.google-map {
+			width: 500px;
+		}
+
+		.info {
+			width: 500px;
+		}
+	}
+
+	.sale {
+		// height: 95vh;
+		.cards {
+			flex-direction: row;
+
+			.card {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.header {
+		display: grid;
+		&__photo {
+			grid-column: 2/3;
+			grid-row: 1/3;
+			background-position: center;
+			background-image: url("../img/flowershop-966459_1920-big.jpg");
+		}
+
+		&__text {
+			grid-column: 1/2;
+			grid-row: 1/3;
+
+			&-title {
+				font-size: 2rem;
+			}
+		}
+
+		&__icons {
+			grid-column: 1/2;
+			grid-row: 1/3;
+
+			&-one {
+				margin-top: 25%;
+				width: 20%;
+			}
+
+			&-two {
+				margin-top: 70%;
+				margin-left: 36%;
+				width: 26%;
+			}
+
+			&-three {
+				margin-top: 50%;
+				width: 9%;
+			}
+		}
+	}
+
+	.nav {
+		.navbar {
+			.flower-quotation {
+				display: inline;
+			}
+		}
+
+		&__links {
+			.navbar__nav {
+				right: 0;
+				width: 20%;
+				height: 100vh;
+				transform: translateX(102%);
+				top: 4.25em;
+			}
+
+			.nav-active {
+				transform: translateX(0);
+			}
+		}
+	}
+
+	.aboutus {
+		&__box {
+			flex-direction: row;
+
+			&-text {
+				width: 500px;
+			}
+		}
+	}
+
+	.offers {
+		&__box {
+			flex-direction: row;
+
+			&-position {
+				margin: 1em;
+
+				.offer-body {
+					height: 200px;
+				}
+			}
+
+			.image-box {
+				&-one {
+					background-image: url("../img/tulips-4004071_1920-big.jpg");
+				}
+
+				&-two {
+					background-image: url("../img/roses-3638620_1920-big.jpg");
+				}
+
+				&-three {
+					background-image: url("../img/wedding-4765939_1920-big.jpg");
+				}
+			}
+		}
+
+		.offer-footer {
+			margin: 1em 0;
+			.offer-btn {
+				padding: 1.5em;
+				font-size: 1.3rem;
+			}
+		}
+
+		.greenhouse {
+			&__img {
+				height: 400px;
+			}
+
+			&__text {
+				padding: 2em;
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	.sale {
+		.cards {
+			.card {
+				margin: 2em 2.5em;
+			}
+		}
+	}
+
+	.contact {
+		.google-map,
+		.info {
+			width: 800px;
+		}
+	}
+}

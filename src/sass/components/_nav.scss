@@ -1,0 +1,83 @@
+@use "./colors" as *;
+
+
+.nav {
+	position: fixed;
+	background-color: $main-color;
+	width: 100%;
+	border-bottom: 1px solid white;
+	z-index: 100;
+
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 4.2em;
+		font-size: 2rem;
+		background-color: $main-color;
+		color: $pure-white;
+
+		&__logo {
+			align-self: center;
+			a {
+				display: flex;
+				align-items: flex-end;
+				padding: 0 0.5em;
+				text-decoration: none;
+				color: $pure-white;
+
+				img {
+					width: 2em;
+				}
+			}
+		}
+
+		.flower-quotation {
+			display: none;
+			font-style: italic;
+			font-weight: 300;
+		}
+	}
+
+	&__links {
+		display: flex;
+		justify-content: flex-end;
+
+		.navbar__nav {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			height: 350px;
+			width: 100%;
+			font-size: 2rem;
+			top: 4.25em;
+			transform: translateY(-160%);
+			background-color: $main-color;
+			opacity: 0;
+			transition: opacity 0.5s, transform 0.3s;
+			z-index: -1;
+
+			&-link {
+				color: $pure-white;
+				text-decoration: none;
+				text-align: center;
+				width: 60%;
+				padding: 1em;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: background-color 0.4s;
+
+				&:hover {
+					background-color: $rich-dark;
+				}
+			}
+		}
+
+		.nav-active {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+}

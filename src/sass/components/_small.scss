@@ -1,0 +1,30 @@
+@media (min-width: 576px) {
+	.aboutus {
+		&__box {
+			&-text {
+				font-size: 2rem;
+			}
+		}
+	}
+
+	.offers {
+		&__box {
+			&-position {
+				width: 400px;
+
+			}
+		}
+
+		.image-box {
+			height: 250px;
+		}
+
+		.offer-footer {
+			.offer-btn {
+				padding: 1.5em;
+			}
+		}
+	}
+
+
+}
